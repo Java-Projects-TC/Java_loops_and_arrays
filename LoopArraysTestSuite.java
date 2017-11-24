@@ -15,19 +15,30 @@ public class LoopArraysTestSuite {
 
   public static void fibTests() {
     testFib(5, 5);
-    // TODO add test cases for fib here
+    testFib(0, 0);
+    testFib(1, 1);
+    testFib(2, 1);
+    testFib(20, 6765);
   }
 
   public static void maximumTests() {
     testMaximum(new int[]{1, 3, 2}, 3);
-    // TODO add test cases for maximum here
+    testMaximum(new int[]{0, 0, 0}, 0);
+    testMaximum(new int[]{500, -500, -1000}, 500);
+    testMaximum(new int[]{-1, -1, -1}, -1);
+
   }
 
   public static void frequencyTableTests() {
     testFrequencyTable(-1.5, 1.5, 6
         , new double[]{-1.1, 1.1, 1.2, -0.8, 1.6}
         , new int[]{1, 1, 0, 0, 0, 2});
-    // TODO add test cases for frequencyTable here
+    testFrequencyTable(-8, 8, 8
+        , new double[]{-5, -5, 9, 0, -8, 2, 0, 10}
+        , new int[]{1, 2, 0, 0, 2, 1, 0, 0});
+    testFrequencyTable(15, 29, 3
+        , new double[]{22, 20, 18, 23, 20, 25, 22, 20, 18, 20}
+        , new int[]{2, 7, 1});
   }
 
   public static void matrixMultiplyTests() {
@@ -44,7 +55,31 @@ public class LoopArraysTestSuite {
         , new double[][]{{34, 44, 54}
             , {86, 112, 138}
             , {30, 45, 60}});
-    // TODO add test cases for matrix multiply here
+    testMatrixMultiply(new double[][]{{4, 5, 6, 0}
+            , {3, 7, 1, 8}
+            , {2, 9, 10, 11}
+            , {-1, 12, 13, -3}
+        }
+        , new double[][]{{4, 5}
+            , {3, 7}
+            , {2, -2}
+            , {9, -1}
+        }
+        , new double[][]{{43, 43}
+            , {107, 54}
+            , {154, 42}
+            , {31, 56}});
+    testMatrixMultiply(new double[][]{{1, 0, 0}
+            , {0, 1, 0}
+            , {0, 0, 1}
+        }
+        , new double[][]{{-4, 7, -2}
+            , {0, 4, 2}
+            , {-3, 3, 5}
+        }
+        , new double[][]{{-4, 7, -2}
+            , {0, 4, 2}
+            , {-3, 3, 5}});
   }
 
   private static final double EPSILON = 0.001;
@@ -111,5 +146,4 @@ public class LoopArraysTestSuite {
           + Arrays.deepToString(actual));
     }
   }
-
 }

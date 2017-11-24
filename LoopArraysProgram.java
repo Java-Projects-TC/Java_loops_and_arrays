@@ -4,7 +4,7 @@ public class LoopArraysProgram {
     printMenu();
   }
 
-  public static void printMenu() {
+  private static void printMenu() {
     System.out.println("0: Quit");
     System.out.println("1: find nth fibonacci number");
     System.out.println("2: find the maximum element of an array");
@@ -12,7 +12,8 @@ public class LoopArraysProgram {
     System.out.print("Choice ->  ");
 
     int choice = IOUtil.readInt();
-    assert (0 <= choice && choice <= 4) : "a number between 0 and 4 must be entered.";
+    assert (0 <= choice
+        && choice <= 4) : "a number between 0 and 4 must be entered.";
 
     switch (choice) {
       case 0:
@@ -32,14 +33,13 @@ public class LoopArraysProgram {
      */
       default:
         assert false : "unknown method";
-        return;
     }
   }
 
   private static void printFib() {
     System.out.println("Please enter a number ->  ");
     int x = IOUtil.readInt();
-    int fibonacci = LoopArraysLibrary.fib2(x);
+    int fibonacci = LoopArraysLibrary.fib(x);
     System.out.println("The " + x + "th fibonacci number is "
         + fibonacci);
   }

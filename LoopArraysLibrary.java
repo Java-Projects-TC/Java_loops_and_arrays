@@ -3,7 +3,11 @@ public class LoopArraysLibrary {
   // This method of the fib function returns the nth
   // fibonacci number using a for loop.
   public static int fib(int n) {
-    assert n > 0 : "you must have a positive input (cant have -nth fib number";
+    assert
+        n >= 0 : "you must have a positive input (cant have -nth fib number)s";
+    if (n == 0) {
+      return 0;
+    }
     int n1 = 0, n2 = 1, i, fib;
     for (i = 1; i < n; i++) {
       fib = n1 + n2;
@@ -15,7 +19,8 @@ public class LoopArraysLibrary {
 
   // I also created a fib method using a while loop, just for practise :)
   public static int fib2(int n) {
-    assert n >= 0 : "you must have a positive input (cant have -nth fib number)";
+    assert
+        n >= 0 : "you must have a positive input (cant have -nth fib number)";
     int n1 = 0, n2 = 1, fib;
     if (n == 0) {
       return 0;
@@ -39,7 +44,8 @@ public class LoopArraysLibrary {
     return max;
   }
 
-
+  // This method generates an array with the respective frequencies of the
+  // inputted data at regular intervals between the max and min values
   public static int[] frequencyTable(double minimum, double maximum,
       int numBuckets, double[] data) {
 
@@ -51,7 +57,8 @@ public class LoopArraysLibrary {
 
     for (int i = 0; i < data.length; i++) {
       for (int j = 0; j < numBuckets; j++) {
-        if (minimum + j * intervals <= data[i] && data[i] < minimum + intervals * (j + 1)) {
+        if (minimum + j * intervals <= data[i]
+            && data[i] < minimum + intervals * (j + 1)) {
           freq[j] += 1;
           break;
         }
@@ -60,6 +67,7 @@ public class LoopArraysLibrary {
     return freq;
   }
 
+  // This uses a triple nested for loop to calculate the product of two matrices
   public static double[][] matrixMultiply(double[][] m, double[][] n) {
     // The column indexing here assumes the user has input a matrix with
     // the same number of elements in each row (matrix is rectangular).
